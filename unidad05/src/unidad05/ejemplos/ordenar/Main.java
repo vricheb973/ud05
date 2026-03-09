@@ -58,7 +58,7 @@ public class Main {
 		
 		ComparaNombres cN = new ComparaNombres();
 		
-		Collections.sort(listaJugadores, cN.reversed());
+		Collections.sort(listaJugadores, cN);
 
 		System.out.println("--------------------------------------------------------------------");
 		

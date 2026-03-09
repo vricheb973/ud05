@@ -1,6 +1,6 @@
-package ejercicios05.padel;
+package ejercicios05.padel.personas;
 
-public abstract class Persona {
+public abstract class Persona implements Comparable<Persona> {
 	
 	private String nombre;
 	private String apellidos;
@@ -35,6 +35,29 @@ public abstract class Persona {
 		this.dni = dni;
 	}
 	
+	public abstract void saludar();
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Persona other = (Persona) obj;
+		return this.dni.equals(other.dni);
+	}
 	
+	@Override
+	public int compareTo(Persona o) {
+		int result = this.nombre.compareTo(o.nombre);
+		
+		if(result == 0) {
+			result = this.dni.compareTo(o.dni);
+		}
+		
+		return result;
+	}	
 
 }
